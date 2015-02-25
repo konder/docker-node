@@ -2,6 +2,7 @@ FROM centos
 
 RUN yum update -y
 RUN yum install -y tar curl
+RUN yum install -y git
 
 # verify gpg and sha256: http://nodejs.org/dist/v0.10.31/SHASUMS256.txt.asc
 # gpg: aka "Timothy J Fontaine (Work) <tj.fontaine@joyent.com>"
