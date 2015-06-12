@@ -21,3 +21,7 @@ RUN curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x
 	&& npm install -g npm@"$NPM_VERSION" \
 	&& npm install -g nodemon \
 	&& npm cache clear
+
+RUN yum install -y git gcc gcc-c++ make rubygems && \
+    gem install sass && \
+    npm install -g bower
