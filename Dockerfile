@@ -25,3 +25,9 @@ RUN curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x
 RUN yum install -y git gcc gcc-c++ make rubygems && \
     gem install sass && \
     npm install -g bower
+
+# install docker
+RUN apt-get install -y apparmor
+RUN curl -s https://get.docker.io/ubuntu/ | sudo sh
+ADD wrapdocker /usr/local/bin/wrapdocker
+RUN chmod +x /usr/local/bin/wrapdocker
