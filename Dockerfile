@@ -23,6 +23,9 @@ RUN curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x
 	&& npm install -g grunt-cli \
 	&& npm cache clear
 
+RUN npm install -g nodemon
+RUN npm install -g forever
+
 RUN yum install -y git gcc gcc-c++ make rubygems && \
     gem install sass && \
     npm install -g bower
