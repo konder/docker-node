@@ -26,6 +26,3 @@ RUN curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x
 RUN yum install -y git gcc gcc-c++ make rubygems && \
     gem install sass && \
     npm install -g bower
-
-# install docker
-RUN curl -sSL https://get.docker.com/ | sh
