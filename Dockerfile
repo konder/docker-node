@@ -26,3 +26,8 @@ RUN curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x
 RUN yum install -y git gcc gcc-c++ make rubygems && \
     gem install sass && \
     npm install -g bower
+    
+
+RUN echo 'LANG="en_US.UTF-8"' > /etc/sysconfig/i18n
+RUN echo 'LC_ALL="en_US.UTF-8"' >> /etc/sysconfig/i18n
+RUN source /etc/sysconfig/i18n
