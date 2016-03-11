@@ -26,8 +26,6 @@ RUN curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x
 RUN wget https://github.com/jwilder/dockerize/releases/download/v0.0.1/dockerize-linux-amd64-v0.0.1.tar.gz
 RUN tar -C /usr/local/bin -xvzf dockerize-linux-amd64-v0.0.1.tar.gz
 
-ADD dockerize /usr/local/bin/dockerize
-
 RUN npm install -g forever
 
 RUN yum install -y git gcc gcc-c++ make rubygems && \
