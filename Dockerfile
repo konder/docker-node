@@ -12,8 +12,8 @@ RUN gpg --keyserver pool.sks-keyservers.net --recv-keys 7937DFD2AB06298B2293C318
 ENV NODE_VERSION 0.10.36
 ENV NPM_VERSION 2.5.0
 
-RUN wget "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
-	&& wget "http://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
+RUN wget "https://npm.taobao.org/mirrors/node/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
+	&& wget "https://npm.taobao.org/mirrors/node/v$NODE_VERSION/SHASUMS256.txt.asc" \
 	&& gpg --verify SHASUMS256.txt.asc \
 	&& grep " node-v$NODE_VERSION-linux-x64.tar.gz\$" SHASUMS256.txt.asc | sha256sum -c - \
 	&& tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
@@ -28,8 +28,11 @@ RUN tar -C /usr/local/bin -xvzf dockerize-linux-amd64-v0.0.1.tar.gz
 
 RUN npm install -g forever
 
-RUN yum install -y git gcc gcc-c++ make rubygems && \
-    gem install sass && \
+RUN yum install -y git gcc gcc-c++ make rubygems
+
+RUN gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
+
+RUN gem install sass && \
     npm install -g bower
     
 
