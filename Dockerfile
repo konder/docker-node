@@ -26,8 +26,6 @@ RUN wget "https://npm.taobao.org/mirrors/node/v$NODE_VERSION/node-v$NODE_VERSION
 RUN wget https://github.com/jwilder/dockerize/releases/download/v0.0.1/dockerize-linux-amd64-v0.0.1.tar.gz
 RUN tar -C /usr/local/bin -xvzf dockerize-linux-amd64-v0.0.1.tar.gz
 
-RUN npm install -g forever
-
 RUN yum install -y git gcc gcc-c++ make rubygems
 
 RUN gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
