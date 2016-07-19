@@ -31,7 +31,7 @@ RUN yum install -y git gcc gcc-c++ make rubygems
 RUN gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
 
 RUN gem install sass && \
-    npm install -g bower
+    npm install -g bower --registry=https://registry.npm.taobao.org
     
 
 RUN echo 'LANG="en_US.UTF-8"' > /etc/sysconfig/i18n
